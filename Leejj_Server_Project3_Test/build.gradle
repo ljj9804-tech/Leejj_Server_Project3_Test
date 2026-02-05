@@ -26,6 +26,42 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    //외부기능_추가_1
+    //추가,업데이트 실행 후 외부 라이브러리 추가되는거 확인하기
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
+
+    //마리아db 연결 도구 설치
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.5.3'
+
+    // 컴파일 단위, 테스트 단위, 2개 설정 예시
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
+
+    // test, 단위 테스트에서도, 사용하기.
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
+
+    // Hikari Cp 설치
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '6.3.0'
+
+    // 모델 맵퍼, DTO <-> VO 변환 해주는 도구
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.4'
+
+    // 6
+    // 로깅 도구, 내가 지정한 레벨 등급에 따라서 기록을 다르게 처리 가능.
+    // logging 라이브러리,Log4j2,
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '3.0.0-beta2'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '3.0.0-beta2'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    testImplementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '3.0.0-beta2'
+
+
 }
 
 test {
