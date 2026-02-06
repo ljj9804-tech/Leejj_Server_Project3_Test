@@ -53,7 +53,7 @@ public class DAO {
     //등록하기.
     public void insert(VO vo) throws Exception {
         // sql 문장 작성,
-        String sql = "insert into tbl_todo (title, dueDate, finished) values (?, ? ,?)";
+        String sql = "insert into tbl_menu (title, dueDate, finished) values (?, ? ,?)";
         // 디비 서버에 연결하는 도구 설정.
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         // sql 문장을 담아 두는 기능
@@ -70,7 +70,7 @@ public class DAO {
     // 목록 기능 구현하기.
     public List<VO> selectAll() throws Exception {
         // sql 문장 작성,
-        String sql = "select * from tbl_todo order by tno desc";
+        String sql = "select * from tbl_menu order by tno desc";
 
         // 디비 서버에 연결하는 도구 설정.(반복)
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
@@ -103,7 +103,7 @@ public class DAO {
     // 조회할 todo 를 클릭을 하면, 클릭한 todo tno 번호를 화면으로 부터 전달을 받음.
     public VO selectOne(Long tno) throws Exception {
         // sql 문장 작성,
-        String sql = "select * from tbl_todo where tno = ?";
+        String sql = "select * from tbl_menu where tno = ?";
 
         // 디비 서버에 연결하는 도구 설정.(반복)
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
@@ -152,7 +152,7 @@ public class DAO {
         // 글쓰기 작업과 거의 동일하므로, 위의 기능을 복붙해서, 수정하기.
         // sql 구문이 다름.
         // sql 문장 작성,
-        String sql = "update tbl_todo set title = ?, dueDate = ?, finished = ? where tno = ?";
+        String sql = "update tbl_menu set title = ?, dueDate = ?, finished = ? where tno = ?";
         // 디비 서버에 연결하는 도구 설정.(반복)
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         // sql 문장을 담아 두는 기능 (반복)
