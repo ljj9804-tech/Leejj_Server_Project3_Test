@@ -71,6 +71,35 @@ public enum Service {
         return todoDTOS;
     } //getList 닫기
 
+    // 변경 코드
+    // 전체 목록 조회 , 실제 데이터베이스에 가져오기.
+    public List<DTO> listAll() throws Exception {
+
+        List<VO> voList = dao.selectAll();
+        log.info("voList 확인 : " + voList);
+
+        List<DTO> dtoList = voList.stream()
+                .map(vo -> modelMapper.map(vo, DTO.class))
+                .collect(Collectors.toList());
+
+        return dtoList;
+    } //listAll 닫기
+
+    // 수정하기
+    public void modify(DTO todoDTO) throws Exception {
+        log.info("todoDTO : " + todoDTO );
+        // dto -> vo 타입으로 변경.
+        VO todoVO = modelMapper.map(todoDTO , VO.class);
+        // dao 의 도움을 받아서, DB 서버에게 일 시키기
+        dao.updateOne(todoVO);
+    }
+
+    // 삭제하기
+    public void remove(Long tno) throws Exception {
+        log.info("삭제할 tno 번호 : " + tno);
+        dao.deleteOne(tno);
+    }
+
 
 
 

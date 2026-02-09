@@ -30,7 +30,7 @@
 </div>
 <div>
 <%--    주소부분은 오늘 날짜로 변경 해야함.--%>
-    <a href="/todo/update_0205?tno=${dto.tno}">수정/삭제</a>
+    <a href="/todo_test/update?tno=${dto.tno}">수정/삭제</a>
     <a href="/todo_test/list">목록가기</a>
 </div>
 </body>

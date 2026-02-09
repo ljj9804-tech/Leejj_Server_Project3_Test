@@ -172,7 +172,7 @@ public class DAO {
     public void deleteOne(Long tno) throws Exception {
         // tno = 4 번 삭제하기.
         // 글쓰기, 수정하기, 거의 비슷, 수정하기를 코드 복붙해서, sql 수정해서 사용하기.
-        String sql = "delete from tbl_todo where tno = ?";
+        String sql = "delete from tbl_menu where tno = ?";
         // 디비 서버에 연결하는 도구 설정.(반복)
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         // sql 문장을 담아 두는 기능 (반복)
